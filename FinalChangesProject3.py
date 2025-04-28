@@ -1,16 +1,12 @@
 # Project Final Changes (Project 1 to project 3)
-# ============================
-#        GAME SETTINGS
-# ============================
-FAST_MODE = False  # Set to True if player wants fast text printing
+
+FAST_MODE = False # idea from chatgpt to add a fast mode
 
 import random
 import json
 import time
 
-# ============================
-#         UTILITIES
-# ============================
+
 
 def slow_print(text: str, delay: float = 0.05, enabled: bool = True):
     """Print text slowly unless fast mode is enabled."""
@@ -22,9 +18,7 @@ def slow_print(text: str, delay: float = 0.05, enabled: bool = True):
     else:
         print(text)
 
-# ============================
-#         ITEM CLASSES
-# ============================
+# Item classes
 
 class Item:
     def __init__(self, name: str, category: str, upStats: str = ""):
@@ -42,9 +36,7 @@ class Consumable(Item):
         super().__init__(name, category="consumable", upStats=f"Heals {heal_amount} HP")
         self.heal_amount = heal_amount
 
-# ============================
-#         PLAYER CLASSES
-# ============================
+# Player classes
 
 class Player:
     def __init__(self, name: str, health: int, attack: int, defense: int, weapon: str, level: int = 1, experience: int = 0):
@@ -181,9 +173,7 @@ class Player:
         slow_print(f"{self.name} attacks {enemy.name} with {self.weapon} for {damage} damage!")
         enemy.take_damage(damage)
 
-# ============================
-#      ENEMY CLASSES
-# ============================
+#Enemy classes
 
 class Slime(Player):
     def __init__(self):
@@ -200,10 +190,7 @@ class Slime(Player):
             return random.choice(self.drops)
         return None
 
-# ============================
-#         GAME LOOP
-# ============================
-
+#Game Loop to start the game
 def battle(player: Player, enemy: Player):
     slow_print("A wild Slime appears!")
     while player.health > 0 and enemy.health > 0:
@@ -265,9 +252,7 @@ class Thief(Player):
     def __init__(self, name: str):
         super().__init__(name, health=30, attack=12, defense=8, weapon="Dagger")
 
-# ============================
-#          MAIN GAME
-# ============================
+# Main game caller
 
 def main():
     slow_print("Welcome, adventurer!")
