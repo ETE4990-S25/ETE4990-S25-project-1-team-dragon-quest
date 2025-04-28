@@ -6,7 +6,7 @@ import random
 import json
 import time
 
-
+# Slow print function with float this time (concept from chatgpt that I assumed was what my classmates wanted)
 
 def slow_print(text: str, delay: float = 0.05, enabled: bool = True):
     """Print text slowly unless fast mode is enabled."""
